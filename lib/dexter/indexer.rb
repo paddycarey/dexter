@@ -536,7 +536,7 @@ module Dexter
 
     def plan(query)
       # strip semi-colons as another measure of defense
-      JSON.parse(execute("EXPLAIN (FORMAT JSON) #{safe_statement(query)}", pretty: false).first["QUERY PLAN"], max_nesting: 1000).first["Plan"]
+      JSON.parse(execute("EXPLAIN (FORMAT JSON) #{safe_statement(query)}", pretty: false).first["QUERY PLAN"], max_nesting: false).first["Plan"]
     end
 
     # TODO for multicolumn indexes, use ordering
